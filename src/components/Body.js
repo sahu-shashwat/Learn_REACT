@@ -1,16 +1,37 @@
 import Resturentcard from "./Resturentcard";
 import resList from "../utils/Mokedata";
-import { useState } from "react";
-
+import { useState,useEffect } from "react";
+import Shimmer from "./Shimmer";
 const Body =()=>{
-   const [listOfres, setlistOfres]=useState(resList)
+   const [listOfres, setlistOfres]=useState([]);
+   const reslist2=resList
+
+   useEffect(()=>{
+    fetchData();
+   },[])
+   
+   const fetchData = async() =>{
+      const data= await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=17.37240&lng=78.43780&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+
+      const json= await data.json();
+      console.log(json)
+         
+      setlistOfres(reslist2)
+   }; 
+  
+
+   // Conditonsal rendering
+  if (listOfres.length ===0){
+   return <Shimmer/>
+  }
+
    return (    
     <div className="body">
         <div className="filter">
              <button className="filter-btn"
                onClick={()=>{
                 const filteredlist=listOfres.filter(
-                   (res)=>res.data.avgRating >4.2
+                   (res)=>res.data.avgRating >4
                 );
                 setlistOfres(filteredlist);
                }}
