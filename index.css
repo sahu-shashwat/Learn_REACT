@@ -53,3 +53,14 @@
     height: 300px;
     background-color: rgb(225, 226, 228);
 }
+.Login{
+   padding: 0 15px;
+   cursor: pointer;
+   border: 1px solid black;
+   border-radius: 10%;
+   background-color: rgb(221, 220, 220);
+} 
+
+.search button{
+    cursor: pointer;
+}
