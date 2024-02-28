@@ -26,7 +26,7 @@ const Body =()=>{
 //    return <Shimmer/>
 //   }
    
-   return listOfres.length ===0 ?(
+   return listOfres.length ==0 ?(
       <Shimmer></Shimmer>
    ) : (    
     <div className="body">
@@ -36,7 +36,7 @@ const Body =()=>{
                 const filteredlist=listOfres.filter(
                    (res)=>res.data.avgRating >4
                 );
-                setlistOfres(filteredlist);
+                setfilterResList(filteredlist);
                }}
              >Top Rated Restaurant</button>
              <button className="filter-btn"
@@ -44,7 +44,7 @@ const Body =()=>{
                 const filteredlist2=listOfres.filter(
                    (reslt)=>reslt.data.costForTwo /100<300
                 );
-                setlistOfres(filteredlist2)
+                setfilterResList(filteredlist2)
               }}
              >food under 300 rupies</button>
              <dev className='search'>
