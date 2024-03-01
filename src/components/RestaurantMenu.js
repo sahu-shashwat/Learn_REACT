@@ -60,7 +60,6 @@ const RestaurantMenu = () => {
                   marginRight: '3px',
                 }}
               >
-                <AiOutlineStar />
               </span>
               <span>{avgRating}</span>
             </h4>
@@ -73,7 +72,6 @@ const RestaurantMenu = () => {
                   marginRight: '3px',
                 }}
               >
-                <FiClock />
               </span>
               <span> {deliveryTime} MINS</span>
             </h4>

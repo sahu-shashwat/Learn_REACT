@@ -64,3 +64,11 @@
 .search button{
     cursor: pointer;
 }
+.menu-main{
+    display: flex;
+}
+.usercard{
+    border: 1px solid black;
+    padding: 20px;
+    margin: 15px;
+}

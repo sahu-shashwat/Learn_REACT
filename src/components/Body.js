@@ -2,6 +2,7 @@ import Resturentcard from "./Resturentcard";
 import resList from "../utils/Mokedata";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const Body =()=>{
    const [listOfres, setlistOfres]=useState([]);
@@ -69,7 +70,14 @@ const Body =()=>{
         </div>
         <div className="res-container">
          {filterResList.map((rnt)=>(
-            <Resturentcard key={rnt.data.id} resdata={rnt}/>
+         <Link
+         style={{
+            textDecoration: 'none',
+            color: '#000',
+          }}
+          key={rnt.data.id} 
+          to={'/restraurants/'+rnt.data.id}>
+         <Resturentcard  resdata={rnt}/></Link>
          ))}
         </div>
     </div>
