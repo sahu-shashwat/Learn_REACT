@@ -3,7 +3,7 @@ import resList from "../utils/Mokedata";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
-
+import useOnlinestatus from "../utils/useOnliestatus";
 const Body =()=>{
    const [listOfres, setlistOfres]=useState([]);
    const reslist2=resList
@@ -27,6 +27,12 @@ const Body =()=>{
 //    return <Shimmer/>
 //   }
    
+   const onlineStatus=useOnlinestatus()   
+   if (onlineStatus===false)
+      return(
+          <h1> looks like you are offline please check your Internet connecton</h1>
+         )
+
    return listOfres.length ==0 ?(
       <Shimmer></Shimmer>
    ) : (    
