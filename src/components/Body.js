@@ -37,44 +37,46 @@ const Body =()=>{
       <Shimmer></Shimmer>
    ) : (    
     <div className="body">
-        <div className="filter"> 
-             <button className="filter-btn"
+        <div className="filter flex"> 
+         <div className="m-3 p-2 items-center ">
+             <button className="filter-btn bg-green-200 p-2 m-3 rounded-lg hover:bg-green-300"
                onClick={()=>{
-                const filteredlist=listOfres.filter(
-                   (res)=>res.data.avgRating >4
-                );
-                setfilterResList(filteredlist);
-               }}
-             >Top Rated Restaurant</button>
-             <button className="filter-btn"
+                  const filteredlist=listOfres.filter(
+                     (res)=>res.data.avgRating >4
+                     );
+                     setfilterResList(filteredlist);
+                  }}
+                  >Top Rated Restaurant</button>
+             <button className="filter-btn bg-green-200 p-2 rounded-lg hover:bg-green-300"
               onClick={()=>{
-                const filteredlist2=listOfres.filter(
-                   (reslt)=>reslt.data.costForTwo /100<300
-                );
-                setfilterResList(filteredlist2)
-              }}
-             >food under 300 rupies</button>
-             <dev className='search'>
+                 const filteredlist2=listOfres.filter(
+                    (reslt)=>reslt.data.costForTwo /100<300
+                    );
+                    setfilterResList(filteredlist2)
+                  }}
+                  >food under 300 rupies</button>
+             <dev className='search mx-3'>
                 <input type="text"
-                 className="search-box" 
+                 className="search-box p-1 border-black" 
                  value={searchText}
                  onChange={(e)=>{
-                  setsearchText(e.target.value)
-                 }}
-                />
-                <button
+                    setsearchText(e.target.value)
+                  }}
+                  />
+                  </dev>  
+                <button className="m-2 p-2 bg-green-200 rounded-lg hover:bg-green-300"
                  onClick={()=>{
-                  const filteredres=listOfres.filter(
-                     (res)=>res.data.name.toLowerCase().includes(searchText.toLowerCase())
-                     )
-                   setfilterResList(filteredres)
-                 }}
-                >
+                    const filteredres=listOfres.filter(
+                       (res)=>res.data.name.toLowerCase().includes(searchText.toLowerCase())
+                       )
+                       setfilterResList(filteredres)
+                     }}
+                     >
                   search
                   </button>
-             </dev>  
+            </div>
         </div>
-        <div className="res-container">
+        <div className="res-container flex flex-wrap">
          {filterResList.map((rnt)=>(
          <Link
          style={{

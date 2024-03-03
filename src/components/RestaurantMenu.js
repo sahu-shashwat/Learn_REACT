@@ -28,7 +28,7 @@ const RestaurantMenu = () => {
 
   return (
     <div className="menu">
-      <header className="menu-header">
+      <header className="menu-header align-middle">
         <div className="menu-header-left">
           <img src={CDN_URL + cloudinaryImageId} alt="Restaurent Info" />
         </div>
@@ -39,27 +39,9 @@ const RestaurantMenu = () => {
           </div>
           <div className="bottom">
             <h4 className="avg-rating">
-              <span
-                className="icons"
-                style={{
-                  position: 'relative',
-                  top: '2px',
-                  marginRight: '3px',
-                }}
-              >
-              </span>
               <span>{avgRating}</span>
             </h4>
             <h4 className="time">
-              <span
-                className="icons"
-                style={{
-                  position: 'relative',
-                  top: '2px',
-                  marginRight: '3px',
-                }}
-              >
-              </span>
               <span> {deliveryTime} MINS</span>
             </h4>
             <h3>{costForTwoMessage}</h3>
@@ -70,7 +52,7 @@ const RestaurantMenu = () => {
       <div className="menu-main">
         <h2>Menu</h2>
         <h3 className="items">{itemCards.length} items</h3>
-        <div className="menu-main-card-container">
+        <div className="menu-main-card-container flex flex-wrap">
           {itemCards.map((item) => (
             <div key={item.card.info.id} className="menu-card">
               <div className="menu-card-left">

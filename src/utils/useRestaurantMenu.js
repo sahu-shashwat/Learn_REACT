@@ -10,7 +10,6 @@ useEffect (()=>{
   const fetchData =async()=>{
     const data =await fetch(MENU_API+resid)
     const json= await data.json()
-
     setresinfo(json.data)
   }
 return resinfo
