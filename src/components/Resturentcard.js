@@ -15,4 +15,18 @@ const Resturentcard = (props)=>{
     </div>)
 }
 
+export const WithPrometedLevel=(Resturentcard)=>{
+      return (props)=>{
+        return (
+            <div>
+                <level className='absolute bg-black text-white m-1 p-1 rounded-lg'> 
+                    Promoted
+                </level>
+                <Resturentcard {...props}/>
+            </div>
+        )
+      }
+}
+
+
 export default Resturentcard

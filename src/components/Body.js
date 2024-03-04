@@ -1,4 +1,4 @@
-import Resturentcard from "./Resturentcard";
+import Resturentcard ,{WithPrometedLevel}from "./Resturentcard";
 import resList from "../utils/Mokedata";
 import { useState,useEffect } from "react";
 import Shimmer from "./Shimmer";
@@ -9,6 +9,8 @@ const Body =()=>{
    const reslist2=resList
    const [searchText,setsearchText]=useState('')
    const[filterResList,setfilterResList]=useState([])
+   const RestaurantCardPrometed=WithPrometedLevel(Resturentcard)
+
    useEffect(()=>{
     fetchData();
    },[])  
@@ -85,7 +87,13 @@ const Body =()=>{
           }}
           key={rnt.data.id} 
           to={'/restraurants/'+rnt.data.id}>
-         <Resturentcard  resdata={rnt}/></Link>
+            
+         {rnt.data.promoted ?(
+           <RestaurantCardPrometed resdata={rnt}/>
+         ):(
+          <Resturentcard resdata={rnt}/>
+         )}
+         </Link>
          ))}
         </div>
     </div>
