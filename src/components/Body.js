@@ -1,9 +1,11 @@
 import Resturentcard ,{WithPrometedLevel}from "./Resturentcard";
 import resList from "../utils/Mokedata";
-import { useState,useEffect } from "react";
+import { useState,useEffect,useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlinestatus from "../utils/useOnliestatus";
+import UserContext from "../utils/Usercontxt";
+
 const Body =()=>{
    const [listOfres, setlistOfres]=useState([]);
    const reslist2=resList
@@ -34,7 +36,10 @@ const Body =()=>{
       return(
           <h1> looks like you are offline please check your Internet connecton</h1>
          )
+  
+   const {loggedinUser,setUsername}=useContext(UserContext)
 
+   
    return listOfres.length ==0 ?(
       <Shimmer></Shimmer>
    ) : (    
@@ -59,7 +64,7 @@ const Body =()=>{
                   >food under 300 rupies</button>
              <dev className='search mx-3'>
                 <input type="text"
-                 className="search-box p-1 border-black" 
+                 className="search-box p-1 border border-black" 
                  value={searchText}
                  onChange={(e)=>{
                     setsearchText(e.target.value)
@@ -76,6 +81,13 @@ const Body =()=>{
                      >
                   search
                   </button>
+                  <label>Username:</label>
+                  <input 
+                  id="name"
+                  className="border border-black p-2"
+                  value={loggedinUser}
+                  onChange={(e) => setUsername(e.target.value)}
+                  />
             </div>
         </div>
         <div className="res-container flex flex-wrap">

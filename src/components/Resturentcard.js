@@ -1,8 +1,10 @@
 import { CDN_URL } from "../utils/constants"
-
+import { useContext } from "react"
+import UserContext from "../utils/Usercontxt"
 const Resturentcard = (props)=>{
     const {resdata}=props
     const {name,cuisines,avgRating,costForTwo,deliveryTime,cloudinaryImageId}=resdata?.data
+    const {loggedinUser}=useContext(UserContext)
  return (
        <div className="m-4 p-3 w-[200px] rounded-md" style={{backgroundColor:'#f0f0f0'}}>
        <img className="res-logo rounded-lg" alt="res-logo"
@@ -12,6 +14,7 @@ const Resturentcard = (props)=>{
        <h4>{avgRating}</h4>
        <h4>{costForTwo/100}for two</h4>
        <h4>{deliveryTime}minutes</h4>
+       <h3>{loggedinUser}</h3>
     </div>)
 }
 

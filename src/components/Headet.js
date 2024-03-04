@@ -1,11 +1,15 @@
 import { LOGO_URL } from "../utils/constants"
-import { useState } from "react"
+import { useState,useContext } from "react"
 import { Link } from "react-router-dom"
 import useOnlinestatus from "../utils/useOnliestatus"
+import UserContext from "../utils/Usercontxt"
 const Header =()=>{
 
     const [loginbtn,setloginbtn]=useState('Login')
     const onlineStatus=useOnlinestatus()
+    
+    const {loggedinUser}=useContext(UserContext)
+    const {UserNumber}=useContext(UserContext)
 
 return (
 <div className="flex justify-between bg-pink-200 shadow-lg">
@@ -32,6 +36,7 @@ return (
                     <Link to='/Contact'>Contact Us</Link>
                 </li>
                 <li className="px-6">Cart</li>
+                <li className="px-6">{loggedinUser} : {UserNumber}</li>
                 <button className="Login"
                  onClick={()=>{
                     loginbtn=='Login'
