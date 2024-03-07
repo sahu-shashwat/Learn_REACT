@@ -4,7 +4,6 @@ import { Link } from "react-router-dom"
 import useOnlinestatus from "../utils/useOnliestatus"
 import UserContext from "../utils/Usercontxt"
 import { UseSelector, useSelector } from "react-redux"
-import Cart from "./Cart"
 
 const Header =()=>{
 

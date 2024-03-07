@@ -5,6 +5,7 @@ import { CDN_URL } from '../utils/constants';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 import RestaurantCategory from './RestaurentCategory';
 import { useState } from 'react';
+
 const RestaurantMenu = () => {
 
   const { resId } = useParams();
